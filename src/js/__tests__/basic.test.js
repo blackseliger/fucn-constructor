@@ -13,10 +13,14 @@ describe('check func-concstructor Character', () => {
     const received = new Character('gleb', 'Swords');
     expect(received).toEqual(expected);
   });
-  test('return error of type', () => {
-    expect(new Character('gleb', 'Sword')).toThrowError(new Error('type has not found'));
-  });
   test('return error of name', () => {
-    expect(new Character('f', 'Swords')).toThrowError(new Error('name length should be from 2 to 10 symbols'));
+    expect(() => {
+      Character('f', 'Swords');
+    }).toThrow();
+  });
+  test('return error of type', () => {
+    expect(() => {
+      Character('gleb', 'Sword');
+    }).toThrow();
   });
 });
